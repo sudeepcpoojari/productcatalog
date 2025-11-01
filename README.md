@@ -27,7 +27,6 @@ Users can view, add, and search products.
 2.Implementing search logic using `Q` objects
 
 ## Sample Output
-Include screenshots here.
 ![Productlist](<Screenshot 2025-11-01 114818.png>)
 ![Addproduct](<Screenshot 2025-11-01 114848.png>)
 ![SearchProduct](<Screenshot 2025-11-01 120348.png>)
