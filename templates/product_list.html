@@ -17,11 +17,12 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        input[type="text"] {
+        input[type="text"], select {
             padding: 8px 12px;
             width: 250px;
             border: 1px solid #ccc;
             border-radius: 6px;
+            margin-right: 5px;
         }
         button {
             padding: 8px 16px;
@@ -52,10 +53,12 @@
             border-collapse: collapse;
             background: white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            table-layout: fixed;
         }
         th, td {
             padding: 12px;
             text-align: center;
+            word-wrap: break-word;
         }
         th {
             background-color: #3498db;
@@ -69,14 +72,33 @@
 <body>
     <h1>Product Catalog</h1>
 
+    <!-- SEARCH FORM -->
     <form method="get">
-        <input type="text" name="q" placeholder="Search by name" value="{{query}}">
+        <input type="text" name="q" placeholder="Search by name" value="{{ query }}">
         <button type="submit">Search</button>
     </form>
+
+    <!-- SORT FORM -->
+    <form method="get">
+        <select name="sort_by">
+            <option value="id" {% if sort_by == 'id' %}selected{% endif %}>Sort by ID</option>
+            <option value="price" {% if sort_by == 'price' %}selected{% endif %}>Sort by Price</option>
+            <option value="category" {% if sort_by == 'category' %}selected{% endif %}>Sort by Category</option>
+        </select>
+
+        <select name="order">
+            <option value="asc" {% if order == 'asc' %}selected{% endif %}>Ascending</option>
+            <option value="desc" {% if order == 'desc' %}selected{% endif %}>Descending</option>
+        </select>
+
+        <button type="submit">Sort</button>
+    </form>
+
     <div style="text-align:center;">
         <a href="{% url 'add_product' %}">Add New Product</a>
     </div>
-    <table border="1" cellpadding="8">
+
+    <table>
         <tr>
             <th>ID</th>
             <th>Name</th>
@@ -85,14 +107,15 @@
         </tr>
         {% for p in products %}
         <tr>
-            <td>{{ forloop.counter }}</td>
+            <td>{{ p.id }}</td>
             <td>{{ p.name }}</td>
             <td>{{ p.price }}</td>
             <td>{{ p.category }}</td>
         </tr>
         {% empty %}
-        <tr><td colspan="3">No products found.</td></tr>
+        <tr><td colspan="4">No products found.</td></tr>
         {% endfor %}
     </table>
+
 </body>
 </html>

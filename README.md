@@ -1,5 +1,5 @@
 # productcatalog
-Mini Product Catalog Web App  Assignment
+Mini Product Catalog Web App Assignment
 
 ## Overview
 A simple Django web app to manage a list of products.  
@@ -19,15 +19,17 @@ Users can view, add, and search products.
 ## Features
 1.View product list  
 2.Add new products  
-3.Search products by name  
+3.Search products by name 
+4.(Optional) Sort by price or category
 
 
 ## Challenges Faced
-1.Designing clean structure
-2.Implementing search logic using `Q` objects
+1.Designing clean structure.
+2.Implementing search logic using 'Q' objects.
 
 ## Sample Output
-![Productlist](<Screenshot 2025-11-01 114818.png>)
+
+![ProductList](<Screenshot 2025-11-01 133803.png>)
 ![Addproduct](<Screenshot 2025-11-01 114848.png>)
 ![SearchProduct](<Screenshot 2025-11-01 120348.png>)
-![ProductDoesn't Exist](<Screenshot 2025-11-01 120617.png>)
+![SortByPrice](<Screenshot 2025-11-01 132819.png>)

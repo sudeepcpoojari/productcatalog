@@ -4,4 +4,5 @@ from .views import ProductListView, ProductCreateView
 urlpatterns = [
     path('', ProductListView.as_view(), name='product_list'),
     path('add/', ProductCreateView.as_view(), name='add_product'),
+   
 ]
